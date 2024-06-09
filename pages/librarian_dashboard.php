@@ -25,10 +25,10 @@ if (!isset($_SESSION['username']) || $_SESSION['usertype'] !== 'librarian') {
 
         <nav>
             <ul>
-                <li><a href="/index.php">Home</a></li>
-                <li><a href="/pages/manage_books.php">Manage Books</a></li>
-                <li><a href="/pages/view_students.php">View Students</a></li>
-                <li><a href="/pages/reports.php">Reports</a></li>
+                <li><a href="../index.php">Home</a></li>
+                <li><a href="./pages/manage_books.php">Manage Books</a></li>
+                <li><a href="./pages/view_students.php">View Students</a></li>
+                <li><a href="./pages/reports.php">Reports</a></li>
                 <li><a href="../auth/logout.php">Logout</a></li>
             </ul>
         </nav>

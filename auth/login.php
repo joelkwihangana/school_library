@@ -48,26 +48,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <div class="form-container ">
-        <div class="login-form ">
-            <h2 class="form title">Login</h2>
+    <div class="form-container">
+        <div class="login-form">
+            <h2 class="form-title">Login</h2>
             <form method="post" action="">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <input type="submit" value="Login" class="btn">
-                <a href="../index.php" class="cancel-btn">Cancel</a>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn">
+                    <a href="../index.php" class="cancel-btn">Cancel</a>
+                </div>
             </form>
             <div class="display-error">
                 <?php displayError($error); ?>
             </div>
         </div>
     </div>
-
-
-
-
 </body>
 
 </html>

@@ -5,7 +5,6 @@ if (!isset($_SESSION['username']) || $_SESSION['usertype'] !== 'student') {
     exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,15 +17,28 @@ if (!isset($_SESSION['username']) || $_SESSION['usertype'] !== 'student') {
 
 <body>
     <?php include "../includes/student-header.php"; ?>
-    <div class="container">
-        <?php
-        // Check if username session variable is set
-        if (isset($_SESSION['username'])) {
-            echo "<h1>Welcome, " . $_SESSION['username'] . "!</h1>";
-        } else {
-            echo "<h1>Welcome to Student Dashboard</h1>";
-        }
-        ?>
+    <div class="dashboard">
+        <div class="card">
+            <div class="card-content">
+                <h1 class="card-number">10</h1>
+                <h2 class="card-title">Borrowed Books</h2>
+                <a href="#" class="card-btn">View More</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h1 class="card-number">5</h1>
+                <h2 class="card-title">Submitted Books</h2>
+                <a href="#" class="card-btn">View More</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h1 class="card-number">2</h1>
+                <h2 class="card-title">Total Books</h2>
+                <a href="#" class="card-btn">View More</a>
+            </div>
+        </div>
     </div>
 </body>
 
