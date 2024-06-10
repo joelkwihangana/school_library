@@ -1,3 +1,15 @@
+<?php
+session_start();
+if (isset($_SESSION['usertype'])) {
+    if ($_SESSION['usertype'] == 'librarian') {
+        header('Location:./pages/librarian_dashboard.php');
+        exit();
+    } else {
+        header('Location:./pages/student_dashboard.php');
+        exit();
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

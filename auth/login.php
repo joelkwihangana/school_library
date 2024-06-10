@@ -1,8 +1,17 @@
 <?php
 include '../includes/config.php';
 
-$error = '';
+if (isset($_SESSION['usertype'])) {
+    if ($_SESSION['usertype'] == 'librarian') {
+        header('Location:../pages/librarian_dashboard.php');
+        exit();
+    } else {
+        header('Location:../pages/student_dashboard.php');
+        exit();
+    }
+}
 
+$error = '';
 function displayError($error)
 {
     echo "<h2> $error</h2>";
@@ -17,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        if ($password == $row['password']) {
+        if ($password == $row['password'] and $username == $row['username']) {
             $_SESSION['username'] = $username;
             $_SESSION['usertype'] = $row['usertype'];
             $_SESSION['userId'] = $row['userId'];
@@ -26,14 +35,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } elseif ($row['usertype'] == 'student') {
                 header("Location:../pages/student_dashboard.php");
             } else {
-                $error = "No user found";
+                $error = "Invalid username or password";
             }
             exit;
         } else {
-            $error = "Invalid password";
+            $error = "Invalid username or password";
         }
     } else {
-        $error = "No user found";
+        $error = "Invalid username or password";
     }
 }
 ?>

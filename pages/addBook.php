@@ -1,31 +1,47 @@
 <?php
-include '../includes/config.php';
-include '../includes/header.php';
+include('../includes/config.php');
+
+if ($_SESSION['usertype'] != 'librarian') {
+    header("Location: login.php");
+    exit();
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $title = $_POST['title'];
-    $author = $_POST['author'];
-    $quantity = $_POST['quantity'];
+    $title = mysqli_real_escape_string($conn, $_POST['title']);
+    $author = mysqli_real_escape_string($conn, $_POST['author']);
+    $quantity = (int)$_POST['quantity'];
 
-    $sql = "INSERT INTO books (title, author, quantity) VALUES ('$title', '$author', '$quantity')";
-
-    if (mysqli_query($conn, $sql)) {
-        echo "New book added successfully";
+    $query = "INSERT INTO books (title, author, quantity) VALUES ('$title', '$author', $quantity)";
+    if (mysqli_query($conn, $query)) {
+        echo "Book added successfully";
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Error: " . $query . "<br>" . mysqli_error($conn);
     }
 }
 ?>
 
-<h2>Add New Book</h2>
-<form method="post" action="">
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title" required>
-    <label for="author">Author:</label>
-    <input type="text" id="author" name="author" required>
-    <label for="quantity">Quantity:</label>
-    <input type="number" id="quantity" name="quantity" required>
-    <input type="submit" value="Add Book">
-</form>
+<!DOCTYPE html>
+<html lang="en">
 
-<?php include '../includes/footer.php'; ?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a book</title>
+</head>
+
+<body>
+    <div class="container">
+        <form method="POST" action="">
+            Title: <input type="text" name="title" required><br>
+            Author: <input type="text" name="author" required><br>
+            Quantity: <input type="number" name="quantity" required><br>
+            <input type="submit" value="Add Book">
+            <a href="librarian_dashboard.php" class="cancel-btn">Cancel</a>
+        </form>
+    </div>
+
+
+    <?php include '../includes/footer.php'; ?>
+</body>
+
+</html>
