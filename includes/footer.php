@@ -10,5 +10,6 @@
         position: fixed;
         bottom: 0;
         width: 99%;
+        box-sizing: border-box;
     }
 </style>

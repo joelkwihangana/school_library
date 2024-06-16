@@ -27,17 +27,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add a book</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 
 <body>
+    <?php include "librarian-header.php" ?>
     <div class="container">
-        <form method="POST" action="">
-            Title: <input type="text" name="title" required><br>
-            Author: <input type="text" name="author" required><br>
-            Quantity: <input type="number" name="quantity" required><br>
-            <input type="submit" value="Add Book">
-            <a href="librarian_dashboard.php" class="cancel-btn">Cancel</a>
-        </form>
+        <div class="form-container">
+            <form method="POST" action="">
+                Title: <input type="text" name="title" required><br>
+                Author: <input type="text" name="author" required><br>
+                Quantity: <input type="number" name="quantity" required><br>
+                <input type="submit" value="Add Book">
+                <a href="librarian_dashboard.php" class="cancel-btn">Cancel</a>
+            </form>
+        </div>
     </div>
 
 

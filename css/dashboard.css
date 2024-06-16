@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #34495E; /* Navy Blue */
+    --primary-color: #548687; /* Navy Blue */
     --secondary-color: #95A5A6; /* Gray */
     --background-color: #FFFFFF; /* White */
     --text-color: #34495E; /* Navy Blue */
@@ -7,10 +7,31 @@
     --nav-active-color: #2C3E50; /* Darker Navy Blue for active */
 }
 
+.chooseTheme{
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    border: 1px solid var(--secondary-color);
+    width: 30vw;
+    justify-content: space-around;
+}
+.chooseTheme button{
+    color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: #2C3E50;
+}
+
+
+
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 header {
@@ -111,4 +132,19 @@ th {
 
 .action-buttons a:hover {
     color: var(--nav-active-color);
+}
+
+.form-container{
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.form-container form{
+    padding: 1rem;
+    width: 400px;
+    height: fit-content;
+    border: 1px solid #ccc;
 }

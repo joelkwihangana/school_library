@@ -23,7 +23,7 @@ if (isset($_SESSION['usertype'])) {
 <body>
     <header>
         <div class="brand">
-            <h1>SLMS</h1>
+            <h1>S L M S</h1>
         </div>
         <nav>
             <ul>

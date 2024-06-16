@@ -18,50 +18,55 @@ body {
 }
 
 header {
-    background: var(--primary-color);
+    background-color: var(--primary-color);
     color: var(--background-color);
+    padding: 10px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
 }
 
 header .brand h1 {
     margin: 0;
-    font-size: 24px;
+    padding-left: 20px;
 }
 
 nav ul {
-    padding: 0;
-    list-style: none;
+    list-style-type: none;
     margin: 0;
+    padding: 0;
     display: flex;
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin-right: 20px;
 }
 
 nav ul li a {
     color: var(--background-color);
     text-decoration: none;
-    font-size: 18px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: var(--nav-hover-color);
-    color: var(--background-color);
+    color: var(--nav-hover-color);
+}
+
+nav ul li a.active {
+    color: var(--nav-active-color);
+}
+
+.container {
+    padding: 20px;
 }
 
 footer {
-    background: var(--secondary-color);
-    color: var(--background-color);
     text-align: center;
     padding: 10px;
-    margin-top: 20px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    position: fixed;
+    bottom: 0;
+    width: 99%;
 }
 
 /* Login form styles  */
@@ -71,14 +76,6 @@ footer {
     height: 100vh;
     align-items: center;
     justify-content: center;
-}
-
-/* form  */
-.form-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
 }
 
 .login-form {
